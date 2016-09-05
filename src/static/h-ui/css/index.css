@@ -1,0 +1,12 @@
+.menu_dropdown {
+	dl{
+		dd{
+			display: none;
+		}
+		&.show{
+			dd{
+				display: block;
+			}
+		}
+	}
+}

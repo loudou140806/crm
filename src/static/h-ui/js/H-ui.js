@@ -453,7 +453,7 @@ jQuery.Huitab =function(tabBar,tabCon,class_name,tabEvent,i){
 /*折叠*/
 jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 	if(obj_type == 2){
-		$(obj+":first").find("b").html("-");
+		$(obj+":first").find("i").html("-");
 		$(obj_c+":first").show();
 	}			
 	$(obj).on(Event,function(){
@@ -462,26 +462,26 @@ jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
 				return false;
 			}else{
 				$(this).next().slideUp(speed).end().removeClass("selected");
-				if($(this).find("b")){
-					$(this).find("b").html("+");
+				if($(this).find("i")){
+					$(this).find("i").html("+");
 				}
 			}
 		}
 		else{
 			if(obj_type == 3){
 				$(this).next().slideDown(speed).end().addClass("selected");
-				if($(this).find("b")){
-					$(this).find("b").html("-");
+				if($(this).find("i")){
+					$(this).find("i").html("-");
 				}
 			}else{
 				$(obj_c).slideUp(speed);
 				$(obj).removeClass("selected");
-				if($(this).find("b")){
-					$(obj).find("b").html("+");
+				if($(this).find("i")){
+					$(obj).find("i").html("+");
 				}
 				$(this).next().slideDown(speed).end().addClass("selected");
-				if($(this).find("b")){
-					$(this).find("b").html("-");
+				if($(this).find("i")){
+					$(this).find("i").html("-");
 				}
 			}
 		}
