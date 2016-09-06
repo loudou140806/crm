@@ -1,0 +1,1 @@
+$(function(){var i=$("aside");$(".skin-minimal input").iCheck({checkboxClass:"icheckbox-blue",radioClass:"iradio-blue",increaseArea:"20%"}),$("#demoform").Validform({tiptype:2}),$.Huifold(".menu_dropdown dt",".menu_dropdown","fast",3,"click"),$(".nav-toggle").click(function(){"none"===i.css("display")?i.css("display","block"):i.css("display","none")})});

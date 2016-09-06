@@ -1,6 +1,7 @@
 var 
 	gulp   = require('gulp'),
 	del    = require('del'),
+	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	less   = require('gulp-less'),
 	cssmin = require('gulp-cssmin'),
@@ -25,7 +26,7 @@ gulp.task('clean', function() {
  * CSS任务,less,加前缀,压缩
  */
 gulp.task('css', function() {
-    gulp.src('src/**/*.less')
+    gulp.src('src/**/*.css')
       .pipe(less())
       .pipe(prefix())
       .pipe(cssmin())
@@ -41,7 +42,7 @@ gulp.task('css', function() {
  */
 gulp.task('js', function() {
 	gulp.src('src/**/*.js')
-	  .pipe(jsmin())
+	  .pipe(uglify())
 	  .pipe(gulp.dest('build/'));    
 	  console.log('js编译成功');
 });
@@ -56,4 +57,7 @@ gulp.task('html', function() {
       console.log('html编译成功');
 });
 
-gulp.task('default',['clean', 'css', 'js', 'html']);
+gulp.task('copy', function(){
+	gulp.src(['src/**/*.eot','src/**/*.svg','src/**/*.ttf','src/**/*.woff','src/**/*.png']).pipe(gulp.dest('build/'));
+})
+gulp.task('default',['clean', 'css', 'js', 'html','copy']);
