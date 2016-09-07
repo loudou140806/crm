@@ -5,6 +5,7 @@
 	<!-- <title>用户管理</title> -->
 	<link rel="stylesheet" href="index.less">
 	<link rel="stylesheet" href="/lib/calidate/need/laydate.css">
+	<link rel="stylesheet" href="/lib/laypage/1.2/skin/laypage.css">
 </head>
 <body>
 	<!-- #include file="/mods/topnav.html" -->
@@ -64,32 +65,11 @@
 			</div>
 		</form>	
 		<span type="button" class="btn btn-primary radius pullUp J_clickEvent" data-event="upDownEvent">收起筛选</span>
-		<table class="table table-border table-bordered table-striped mt-50">
-			<thead>
-				<tr>
-					<th class="col1">表头</th>
-					<th class="col2">表头</th>
-					<th class="col3">表头</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th class="col1">类别</th>
-					<td class="col2">表格内容</td>
-					<td class="col3">表格内容</td>
-				</tr>
-				<tr>
-					<th class="col1">类别</th>
-					<td class="col2">表格内容</td>
-					<td class="col3">表格内容</td>
-				</tr>
-				<tr>
-					<th class="col1">类别</th>
-					<td class="col2">表格内容</td>
-					<td class="col3">表格内容</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="table"></div>
+		<div class="laypage">
+			<div id="view1" class="text-c">测试数据，当前是第：-1674477433</div>
+			<div id="page1" class="text-c"><div name="laypage1.2" class="laypage_main laypageskin_default" id="laypage_0"><a href="javascript:;" class="laypage_prev" data-page="5">上一页</a><a href="javascript:;" class="laypage_first" data-page="1" title="首页">1</a><span>…</span><a href="javascript:;" data-page="4">4</a><a href="javascript:;" data-page="5">5</a><span class="laypage_curr">6</span><a href="javascript:;" data-page="7">7</a><a href="javascript:;" data-page="8">8</a><span>…</span><a href="javascript:;" class="laypage_last" title="尾页" data-page="32">32</a><a href="javascript:;" class="laypage_next" data-page="7">下一页</a></div></div>
+		</div>
 	</section>
 	
 

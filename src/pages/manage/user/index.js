@@ -7,7 +7,9 @@ define('manage/user/index',function(require, exports, module){
 			page.initLayPage();
 		},
 		initTable: function(){
-
+			$(juicer.templates['table.juicer']({
+				
+			}))
 		},
 		//分页
 		initLayPage: function(){
