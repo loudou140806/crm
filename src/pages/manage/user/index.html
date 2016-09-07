@@ -2,10 +2,101 @@
 <html lang="en">
 <head>
 	<!-- #include file="/mods/header.html" -->
-	<title>用户管理</title>
+	<!-- <title>用户管理</title> -->
+	<link rel="stylesheet" href="index.less">
+	<link rel="stylesheet" href="/lib/calidate/need/laydate.css">
 </head>
 <body>
+	<!-- #include file="/mods/topnav.html" -->
+	<!-- #include file="/mods/aside.html" -->
+	<section class="container Hui-article-box right">
+		<form action="" method="post" class="form form-horizontal responsive" id="demoform">
+			<div class="row cl">
+				<label class="form-label col-xs-2">邮箱：</label>
+				<div class="formControls col-xs-5">
+					<input type="text" class="input-text" placeholder="@" name="email" id="email" datatype="e" nullmsg="请输入邮箱！">
+				</div>
+				<div class="col-xs-5"> </div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-2">用户名：</label>
+				<div class="formControls col-xs-5">
+					<input type="text" class="input-text" placeholder="4~16个字符，字母/中文/数字/下划线" name="username" id="username" datatype="*4-16" nullmsg="用户名不能为空">
+				</div>
+				<div class="col-xs-5"> </div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-2">手机：</label>
+				<div class="formControls col-xs-5">
+					<input type="text" class="input-text" autocomplete="off" placeholder="手机" name="username" id="username" datatype="m" nullmsg="账户不能为空">
+				</div>
+				<div class="col-xs-5"> </div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-2">性别：</label>
+				<div class="formControls skin-minimal col-xs-5">
+					<div class="radio-box">
+						<input type="radio" id="sex-1" name="sex" datatype="*" nullmsg="请选择性别！">
+						<label for="sex-1">男</label>
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="sex-2" name="sex">
+						<label for="sex-2">女</label>
+					</div>
+				</div>
+				<div class="col-xs-5"> </div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-2">开始时间：</label>
+				<div class="form-label col-xs-5">
+					<div id="cal formControls col-xs-5">
+						<input type="text" class="input-text J_focusEvent" id="cal1" data-event="focusEvent" placeholder="开始时间">
+					</div>
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-2">结束时间：</label>
+				<div class="form-label col-xs-5">
+					<div id="formControls col-xs-5">
+						<input type="text" class="input-text J_focusEvent" id="cal2" data-event="focusEvent" placeholder="结束时间">
+					</div>
+				</div>
+			</div>
+		</form>	
+		<span type="button" class="btn btn-primary radius pullUp J_clickEvent" data-event="upDownEvent">收起筛选</span>
+		<table class="table table-border table-bordered table-striped mt-50">
+			<thead>
+				<tr>
+					<th class="col1">表头</th>
+					<th class="col2">表头</th>
+					<th class="col3">表头</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="col1">类别</th>
+					<td class="col2">表格内容</td>
+					<td class="col3">表格内容</td>
+				</tr>
+				<tr>
+					<th class="col1">类别</th>
+					<td class="col2">表格内容</td>
+					<td class="col3">表格内容</td>
+				</tr>
+				<tr>
+					<th class="col1">类别</th>
+					<td class="col2">表格内容</td>
+					<td class="col3">表格内容</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	
+
 	<!-- #include file="/mods/footer.html" -->
-	<section class="container Hui-article-box"></section>
+	<script type="text/javascript" src="/lib/calidate/laydate.dev.js"></script>
+	<script type="text/javascript">
+		seajs.use('manage/user/index');
+	</script>
 </body>
 </html>

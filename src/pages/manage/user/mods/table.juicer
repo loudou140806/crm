@@ -1,0 +1,22 @@
+<table class="table table-border table-bordered table-striped mt-50">
+	<thead>
+		<tr>
+			<th class="col1">序号</th>
+			<th class="col2">用户名</th>
+			<th class="col3">手机</th>
+			<th class="col4">邮箱</th>
+			<th class="col5">性别</th>
+			<th class="col6">类型</th>
+			<th class="col7">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		{@each rs as item, index}
+			<tr>
+				<th class="col1">类别</th>
+				<td class="col2">表格内容</td>
+				<td class="col3">表格内容</td>
+			</tr>
+		{@/each}
+	</tbody>
+</table>

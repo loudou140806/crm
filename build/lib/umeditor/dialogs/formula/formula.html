@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../third-party/mathquill/mathquill.css">
-    <style>
-        html, body, .main{
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>Document</title><link rel="stylesheet" href="../../third-party/mathquill/mathquill.css"><style>html, body, .main{
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -19,23 +12,7 @@
             border: 0px;
             padding: 0px;
             margin:4px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="main">
-    <div class="mathquill-editable"></div>
-</div>
-
-<div>
-    <input id="blurHelper">
-</div>
-
-<script src="../../third-party/jquery.min.js"></script>
-<script src="../../third-party/mathquill/mathquill.js"></script>
-<script>
-    $(function(){
+        }</style></head><body><div class="main"><div class="mathquill-editable"></div></div><div><input id="blurHelper"></div><script src="../../third-party/jquery.min.js"></script><script src="../../third-party/mathquill/mathquill.js"></script><script>$(function(){
 
         var UM = parent.UM,
             $iframe = $(getSelfIframe()),
@@ -206,7 +183,4 @@
 
         /* 绑定到window上，给上级window调用 */
         window.formula = new Formula();
-    });
-</script>
-</body>
-</html>
+    });</script></body></html>

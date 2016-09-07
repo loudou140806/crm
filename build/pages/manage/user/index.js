@@ -1,0 +1,1 @@
+define("manage/user/index",function(e){});

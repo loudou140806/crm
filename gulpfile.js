@@ -12,7 +12,8 @@ var
 	server = require('gulp-devserver'),
 	essi   = require('essi'),
 	yargs  = require('yargs').argv,
-	htmlmin = require('gulp-htmlmin');
+	htmlmin = require('gulp-htmlmin'),
+  Path = require('path');
 
 /**
  * 清除bulid目录
@@ -26,7 +27,8 @@ gulp.task('clean', function() {
  * CSS任务,less,加前缀,压缩
  */
 gulp.task('css', function() {
-    gulp.src('src/**/*.css')
+
+    gulp.src(['src/**/*.css','src/**/*.less'])
       .pipe(less())
       .pipe(prefix())
       .pipe(cssmin())
@@ -41,7 +43,7 @@ gulp.task('css', function() {
  * js任务
  */
 gulp.task('js', function() {
-	gulp.src('src/**/*.js')
+	gulp.src(['src/**/*.js','!src/**/*.min.js'])
 	  .pipe(uglify())
 	  .pipe(gulp.dest('build/'));    
 	  console.log('js编译成功');
@@ -52,12 +54,66 @@ gulp.task('js', function() {
   */
 gulp.task('html', function() {
     gulp.src('src/**/*.html')
-      .pipe(htmlmin(''))
+      .pipe(htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('build/'));
       console.log('html编译成功');
 });
 
+/*
+* juicer编译
+*
+* `gulp juicer` 编译./src目录下的所有juier模板
+* `gulp juicer -c --cwd .` 编译命令行当前目录下的juicer模板
+*/
+gulp.task('juicer', function () {
+  var srcRoot = srcDir = Path.resolve(__dirname, './src');
+  var buildRoot = buildDir = Path.resolve(__dirname, './build');
+
+  if(yargs.c) {
+    srcDir = process.cwd();
+    buildDir = srcDir.replace(srcRoot, buildRoot);
+  }
+  gulp.src(srcDir + '/**/*.juicer')
+    .pipe(juicer({cmd:true, juicerPath:''}))
+    .pipe(rename(function ( path ) {
+      path.basename += 'Tpl';
+      path.extname = '.js';
+    }))
+    .pipe(gulp.dest(srcDir))
+    .pipe(gulp.dest(buildDir));
+
+  console.log('Juicer编译成功');
+});
+
+gulp.task('watch', function () {
+  gulp.watch(['./src/**/*.juicer'], ['juicer']);
+});
+
+
+gulp.task('release',['clean', 'css', 'js', 'html', 'copy','watch', 'juicer']);
+
 gulp.task('copy', function(){
-	gulp.src(['src/**/*.eot','src/**/*.svg','src/**/*.ttf','src/**/*.woff','src/**/*.png']).pipe(gulp.dest('build/'));
+	gulp.src(['src/**/*.eot','src/**/*.svg','src/**/*.ttf','src/**/*.woff','src/**/*.png','src/**/*.htc'])
+	.pipe(gulp.dest('build/'));
 })
-gulp.task('default',['clean', 'css', 'js', 'html','copy']);
+
+/**
+ * 参数说明
+ * -w: 实时监听
+ * -s: 启动服务器
+ */
+gulp.task('default', function () {
+  if ( yargs.s ) {
+    gulp.start('server');
+  }
+  if ( yargs.w ) {
+    gulp.start('watch');
+  }
+  if ( yargs.c ) {
+    gulp.start('clean');
+  }
+  else {
+    gulp.start('release');
+  }
+});
+
