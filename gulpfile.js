@@ -92,7 +92,7 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('release',['clean', 'css', 'js', 'html', 'copy','watch', 'juicer']);
+gulp.task('release',['clean', 'css', 'js', 'html', 'copy', 'juicer']);
 
 gulp.task('copy', function(){
 	gulp.src(['src/**/*.eot','src/**/*.svg','src/**/*.ttf','src/**/*.woff','src/**/*.png','src/**/*.htc'])

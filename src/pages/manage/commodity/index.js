@@ -1,4 +1,4 @@
-define('manage/user/index',function(require, exports, module){
+define('manage/commodity/index',function(require, exports, module){
 	require('./mods/tableTpl.js');
 	var Ajax = require('lib/ajax');
 	var pageIndex = 0;
@@ -9,16 +9,16 @@ define('manage/user/index',function(require, exports, module){
 			page.initLayPage();
 		},
 		initTable: function(){
+			console.log('test');
 			Ajax.get({
-				url: 'admin/user/lists',
+				url: 'admin/commodity/lists',
 				data:{
 					page: pageIndex,
 					limit: 10,
-					nick_name: '',
-					real_name: '',
-					phone: '',
-					email: '',
-					create_time: ''
+					// name: '',
+					// description: '',
+					// price: '',
+					// release_time: ''
 				},
 				success: function( res ){
 					if(!res.errNum){

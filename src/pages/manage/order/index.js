@@ -1,4 +1,4 @@
-define('manage/user/index',function(require, exports, module){
+define('manage/order/index',function(require, exports, module){
 	require('./mods/tableTpl.js');
 	var Ajax = require('lib/ajax');
 	var pageIndex = 0;
@@ -10,15 +10,15 @@ define('manage/user/index',function(require, exports, module){
 		},
 		initTable: function(){
 			Ajax.get({
-				url: 'admin/user/lists',
+				url: 'admin/order/lists',
 				data:{
 					page: pageIndex,
 					limit: 10,
-					nick_name: '',
-					real_name: '',
-					phone: '',
-					email: '',
-					create_time: ''
+					// nick_name: '',
+					// real_name: '',
+					// phone: '',
+					// email: '',
+					// create_time: ''
 				},
 				success: function( res ){
 					if(!res.errNum){
@@ -27,6 +27,8 @@ define('manage/user/index',function(require, exports, module){
 							rs: res.retData
 						})).appendTo($('.table'));
 					}
+				},
+				error: function ( res ) {
 				}
 			});
 		},

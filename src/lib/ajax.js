@@ -26,7 +26,6 @@ define('lib/ajax',function(require, exports, module){
 
 		if( obj.type == 'POST' && obj.contentType == 'application/json')
 			obj.data = JSON.stringify(obj.data);
-
 		obj.success = function(res, status, xhr){
 			if( obj.loading && Util.loading.exist() )
 				Util.loading.hide();
@@ -71,7 +70,7 @@ define('lib/ajax',function(require, exports, module){
 				type: 'GET',
 				dataType: 'json',
 				xhrFields: {
-					withCredentials: true
+					withCredentials: false
 				},
 				timeout: 15000
 			});

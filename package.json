@@ -28,7 +28,9 @@
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "juicer": "gulp juicer",
+    "clam": "clam on"
   },
   "repository": {
     "type": "git",
