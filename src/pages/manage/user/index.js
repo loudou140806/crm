@@ -1,7 +1,7 @@
 define('manage/user/index',function(require, exports, module){
+	var Ajax = require('lib/ajax'),
+	pageIndex = 0;
 	require('./mods/tableTpl.js');
-	var Ajax = require('lib/ajax');
-	var pageIndex = 0;
 	var page = {
 		init: function(){
 			page.bindEvent();
