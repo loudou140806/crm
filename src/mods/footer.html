@@ -17,7 +17,7 @@ var webPath = 'http://loumingjie.cn/crm/build/';
 	cfg = {
 		paths: {
 			'webPath': webPath,
-			'lib': webPath + 'lib/',
+			'lib': webPath + 'lib',
 			'mods': webPath + 'mods/',
 			'manage': webPath + 'pages/manage/',
 			'mall': webPath + 'pages/mall',
@@ -28,5 +28,9 @@ var webPath = 'http://loumingjie.cn/crm/build/';
 		},
 		charest: 'utf-8'
 	};
+	cfg['map'] = [
+	      ['.css','.css?v='+Math.random()],
+	      ['.js','.js?v='+Math.random()]
+	    ];
 	seajs.config(cfg);
 </script>

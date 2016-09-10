@@ -14,7 +14,8 @@ var
 	yargs  = require('yargs').argv,
 	htmlmin = require('gulp-htmlmin'),
   Path = require('path');
-  plumber = require('gulp-plumber');
+  plumber = require('gulp-plumber'),
+  rev = require('gulp-rev');
 
 
 cdnPath = {  
@@ -52,6 +53,7 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 	gulp.src(['src/**/*.js','!src/**/*.min.js','!src/**/sea.js'])
 	  .pipe(uglify())
+    .pipe(rev())
 	  .pipe(gulp.dest('build/'));    
 	  console.log('js编译成功');
   gulp.src('src/**/sea.js')
