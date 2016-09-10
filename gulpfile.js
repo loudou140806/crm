@@ -50,10 +50,12 @@ gulp.task('css', function() {
  * js任务
  */
 gulp.task('js', function() {
-	gulp.src(['src/**/*.js','!src/**/*.min.js'])
+	gulp.src(['src/**/*.js','!src/**/*.min.js','!src/**/sea.js'])
 	  .pipe(uglify())
 	  .pipe(gulp.dest('build/'));    
 	  console.log('js编译成功');
+  gulp.src('src/**/sea.js')
+  .pipe(gulp.dest('build/'));  
 });
 
  /**
