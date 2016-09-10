@@ -3,6 +3,7 @@ define('manage/user/index',function(require, exports, module){
 	pageIndex = 0;
 	console.log(Ajax);
 	console.log(require);
+	console.log(require.resolve('lib/ajax'));
 	require('./mods/tableTpl.js');
 	var page = {
 		init: function(){
