@@ -18,7 +18,7 @@ var
 
 
 cdnPath = {  
-    online: '//loumingjie.cn/crm/'
+    online: '//loumingjie.cn/crm/build'
   };
 
 /**
