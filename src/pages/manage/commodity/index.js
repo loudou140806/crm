@@ -9,7 +9,6 @@ define('manage/commodity/index',function(require, exports, module){
 			page.initLayPage();
 		},
 		initTable: function(){
-			console.log('test');
 			Ajax.get({
 				url: 'admin/commodity/lists',
 				data:{
@@ -22,7 +21,6 @@ define('manage/commodity/index',function(require, exports, module){
 				},
 				success: function( res ){
 					if(!res.errNum){
-						console.log('test');
 						$(juicer.templates['table.juicer']({
 							rs: res.retData
 						})).appendTo($('.table'));
