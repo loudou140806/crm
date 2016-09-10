@@ -18,7 +18,7 @@ define('lib/ajax',function(require, exports, module){
 		self._complete = obj.complete;
 
 		if(obj['url'].indexOf('http://') != 0){
-			obj['url'] =   base + obj['url'];
+			obj['url'] = base + obj['url'];
 		}
 
 		if( !obj.data )
