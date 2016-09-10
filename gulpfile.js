@@ -16,6 +16,11 @@ var
   Path = require('path');
   plumber = require('gulp-plumber');
 
+
+cdnPath = {  
+    online: '//loumingjie.cn/crm/build'
+  };
+
 /**
  * 清除bulid目录
  */
@@ -56,7 +61,19 @@ gulp.task('js', function() {
   */
 gulp.task('html', function() {
     gulp.src('src/**/*.html')
-      .pipe(htmlmin({collapseWhitespace: true}))
+      .pipe(essi.gulp({
+        strictPate:true,
+        cdnPath: cdnPath.online
+      }))
+      .pipe(htmlmin({
+        collapseWhitespace: true,
+        removeComments: true,
+        collapseBooleanAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        minifyJS: true,
+        minifyCSS: true
+      }))
       .pipe(gulp.dest('build/'));
       console.log('html编译成功');
 });
@@ -92,7 +109,7 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('release',['clean', 'css', 'js', 'html', 'copy','watch', 'juicer']);
+gulp.task('release',['clean', 'css', 'js', 'html', 'copy', 'juicer']);
 
 gulp.task('copy', function(){
 	gulp.src(['src/**/*.eot','src/**/*.svg','src/**/*.ttf','src/**/*.woff','src/**/*.png','src/**/*.htc'])

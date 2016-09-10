@@ -306,6 +306,9 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 .container {padding-right: 15px;padding-left: 15px;margin-right: 15px;margin-left: 15px;}
 .container-fluid {padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto}
 
+@media ( min-width : 767px) {
+  .container{width: 530px}
+}
 @media ( min-width : 992px) {
 	.container{width: 760px}
 }

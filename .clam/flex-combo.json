@@ -1,5 +1,6 @@
 {
-  "urls": {},
+  "urls": {
+  },
   "charset": "utf-8",
   "urlBasedCharset": {},
   "hosts": {},
@@ -8,10 +9,9 @@
   "servlet": "?",
   "seperator": ",",
   "filter": {
-    "/crm/build":"/"
+    "/crm/build": "/"
     },
-  "engine": {
-  },
+  "engine": {},
   "dac/tpl": {
     "define": "KISSY.add",
     "anonymous": false,

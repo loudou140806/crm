@@ -1,0 +1,22 @@
+<table class="table table-border table-bordered table-striped mt-50">
+	<thead>
+		<tr>
+			<th class="col1">序号</th>
+			<th class="col2">收货地址</th>
+			<th class="col3">留言</th>
+			<th class="col4">联系电话</th>
+			<th class="col7">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		{@each rs as item, index}
+			<tr>
+				<th class="col1">${item.id}</th>
+				<td class="col3">${item.receive_address}</td>
+				<td class="col2">${item.leave_msg}</td>
+				<td class="col4">${item.contact}</td>
+				<td class="col7 delete Hui-iconfont Hui-iconfont-del J_clickEvent" data-id="${item.user_id}" data-event="deleteEvent"></td>
+			</tr>
+		{@/each}
+	</tbody>
+</table>

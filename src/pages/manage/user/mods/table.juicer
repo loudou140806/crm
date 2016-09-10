@@ -13,9 +13,13 @@
 	<tbody>
 		{@each rs as item, index}
 			<tr>
-				<th class="col1">类别</th>
-				<td class="col2">表格内容</td>
-				<td class="col3">表格内容</td>
+				<th class="col1">${item.id}</th>
+				<td class="col3">${item.nick_name}</td>
+				<td class="col2">${item.phone}</td>
+				<td class="col4">${item.email}</td>
+				<td class="col5">${item.gender}</td>
+				<td class="col6">${item.property}</td>
+				<td class="col7 delete Hui-iconfont Hui-iconfont-del J_clickEvent" data-id="${item.user_id}" data-event="deleteEvent"></td>
 			</tr>
 		{@/each}
 	</tbody>

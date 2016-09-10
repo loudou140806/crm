@@ -1,5 +1,7 @@
 define('manage/user/index',function(require, exports, module){
 	require('./mods/tableTpl.js');
+	var Ajax = require('lib/ajax');
+	var pageIndex = 0;
 	var page = {
 		init: function(){
 			page.bindEvent();
@@ -7,9 +9,26 @@ define('manage/user/index',function(require, exports, module){
 			page.initLayPage();
 		},
 		initTable: function(){
-			$(juicer.templates['table.juicer']({
-				
-			}));
+			Ajax.get({
+				url: 'admin/user/lists',
+				data:{
+					page: pageIndex,
+					limit: 10,
+					nick_name: '',
+					real_name: '',
+					phone: '',
+					email: '',
+					create_time: ''
+				},
+				success: function( res ){
+					if(!res.errNum){
+						console.log('test');
+						$(juicer.templates['table.juicer']({
+							rs: res.retData
+						})).appendTo($('.table'));
+					}
+				}
+			});
 		},
 		//分页
 		initLayPage: function(){
@@ -34,12 +53,12 @@ define('manage/user/index',function(require, exports, module){
 			$(document).on('focus', '.J_focusEvent', function(e){
 				var tag = $(e.currentTarget);
 				console.log(tag.data('event'));
-				page[tag.data('event')] && page[tag.data('event')](tag);	
+				page[tag.data('event')] && page[tag.data('event')](tag);
 			});
 			$(document).on('click', '.J_clickEvent', function(e){
 				var tag = $(e.currentTarget);
-				page[tag.data('event')] && page[tag.data('event')](tag);	
-			})
+				page[tag.data('event')] && page[tag.data('event')](tag);
+			});
 		},
 		upDownEvent:function( tag ){
 			if( tag.html() === '收起筛选' ){
@@ -55,7 +74,11 @@ define('manage/user/index',function(require, exports, module){
 			laydate({
                 elem: '#' + tag.attr('id')
             });
+		},
+		//删除用户
+		deleteEvent: function( tag ){
+			
 		}
-	}
+	};
 	page.init();
-})
+});
