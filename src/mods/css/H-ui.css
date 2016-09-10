@@ -258,7 +258,7 @@ body,th,td,button,input,select,textarea{font-family:"Microsoft Yahei","Hiragino 
 }
 body{line-height:1.6}
 h1,h2,h3,h4,h5,h6{font-size:100%}
-a,area{outline:none;blr:expression(this.onFocus=this.blur())}
+a,area{outline:none;}
 a{text-decoration:none;cursor: pointer}
 a:hover{text-decoration:underline;outline:none}
 a.ie6:hover{zoom:1}
@@ -271,7 +271,7 @@ img{border:0;vertical-align:middle}
 a img,img{-ms-interpolation-mode:bicubic}
 
 /*IE下a:hover 背景闪烁*/
-*html{overflow:-moz-scrollbars-vertical;zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache",false,true)}(this))}
+*html{overflow:-moz-scrollbars-vertical;}
 
 /*HTML5 reset*/
 header,footer,section,aside,details,menu,article,section,nav,address,hgroup,figure,figcaption,legend{display:block;margin:0;padding:0}time{display:inline}
@@ -310,10 +310,10 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 	.container{width: 760px}
 }
 @media ( min-width : 1200px) {
-	.container {width: 1170px}
+	.container {width: 970px}
 }
 @media ( min-width : 1300px) {
-	.container {width: 1270px}
+	.container {width: 1070px}
 }
 
 @media print{
@@ -982,8 +982,7 @@ sup{top:-0.5em}sub{bottom:-0.25em}
 	.content{ font-size:16px;}
 }
 @media (max-width: 480px) {
-	.content img{max-width:100%!important; height:auto!important;width:expression(this.width > 320 ? "320px" : this.width)!important}
-	*html .content img{width:expression(this.width>320&&this.width>this.height?320:auto)}
+	.content img{max-width:100%!important; height:auto!important;}
 }
 /*3.1.22 列表
 	Name:			style_ulolli
@@ -1401,7 +1400,6 @@ squid.swing.jselect()
 	-o-user-select: none;
 	user-select: none}
 	.select-list {position:absolute;left:0; right:0;top:100%;z-index:1;line-height:34px;max-height:320px; overflow:auto;background-color:#fff;background-clip: padding-box;
-	_height:expression(this.scrollHeight > 319 ? "320px" : "auto");
 	-moz-box-shadow:0 1px 2px rgba(0, 1, 1, 0.2);
 	-webkit-box-shadow:0 1px 2px rgba(0, 1, 1, 0.2);
 	box-shadow:0 1px 2px rgba(0, 1, 1, 0.2);
@@ -3148,15 +3146,13 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus{color: #fff;text-deco
 .loading{height: 50px; background: url(../images/loading-b.gif) no-repeat center}
 .mask{position:fixed;top:0;left:0;z-index:999;width:100%;height:100%;background-color:rgba(0,0,0,0.7);-moz-transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;transition:all 0.3s ease-in}
 
-* html .mask{position:absolute;left:expression(documentElement.scrollLeft + documentElement.clientWidth - this.offsetWidth);top:expression(documentElement.scrollTop + documentElement.clientHeight - this.offsetHeight)}
-
 /*Huimodal*/
 .modal-open{overflow:hidden}/*当弹出层出现时，隐藏body右侧滚动条*/
 .page-overflow{margin-right:16px}/*隐藏body滚动条时，页面偏移*/
 .modal-scrollable{position:fixed;top:0;right:0;bottom:0;left:0;overflow: auto}/*弹出层的最外层，全屏，用户响应点击和滚动*/
 .modal-overflow .modal-scrollable{overflow-y:scroll}/*弹窗超出屏幕高度时，弹出层替代body右侧滚动条，实现弹出层的整体滚动*/
 .modal-backdrop {position:fixed;top:0;right:0;bottom:0;left:0;width:100%;height:100%;z-index:1040;background-color:#000}/*默认遮罩层，全屏黑色*/
-* html .modal-backdrop{position:absolute;left:expression(documentElement.scrollLeft + documentElement.clientWidth - this.offsetWidth);top:expression(documentElement.scrollTop + documentElement.clientHeight - this.offsetHeight)}/*解决IE下 遮罩层兼容性*/
+* html .modal-backdrop{position:absolute;}/*解决IE下 遮罩层兼容性*/
 .modal-backdrop.fade {opacity:0;filter: alpha(opacity=0)}/*遮罩层失去时，透明度为0*/
 .modal-backdrop,.modal-backdrop.fade.in {opacity: 0.7;filter: alpha(opacity=70)}/*遮罩层进入 0.7透明度*/
 .modal {position:absolute;top:50%;left:50%; width:500px;margin-left:-250px;z-index:1050;overflow: visible;background-color: #fff;background-clip: padding-box;
@@ -3219,7 +3215,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus{color: #fff;text-deco
 	Example:		<a href="javascript:void(0)" class="toTop" title=backToTopTxt alt=backToTopTxt></a>
 	Explain:		返回顶部
 */
-.toTop{position:fixed;bottom:60px;right:15px; z-index:999;display:none;cursor: pointer;overflow:hidden;visibility:visible; background-color:#fff;border: 1px solid #d9d9d9;color: #9c9c9c;font-size: 16px;width: 38px;height: 38px;line-height: 38px;text-align: center; text-decoration:none;_position:absolute;_top:expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight)}
+.toTop{position:fixed;bottom:60px;right:15px; z-index:999;display:none;cursor: pointer;overflow:hidden;visibility:visible; background-color:#fff;border: 1px solid #d9d9d9;color: #9c9c9c;font-size: 16px;width: 38px;height: 38px;line-height: 38px;text-align: center; text-decoration:none;_position:absolute;}
 .toTop:hover{ color:#fff; text-decoration:none; background-color:#999; border-color:#999}
 
 /*4.13 分享到

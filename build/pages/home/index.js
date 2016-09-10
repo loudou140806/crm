@@ -1,0 +1,1 @@
+define("home/index",function(a,n,t){var i={init:function(){i.getData()},getData:function(){$.ajax({url:"http://api.tiaozaoj.com/admin/index/allCount",dataType:"json",success:function(a){a.errNum||i.fillData(a.retData)}})},fillData:function(a){for(key in a)$("."+key).find("span").html(a[key])}};i.init()});

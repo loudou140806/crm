@@ -14,6 +14,7 @@ var
 	yargs  = require('yargs').argv,
 	htmlmin = require('gulp-htmlmin'),
   Path = require('path');
+  plumber = require('gulp-plumber');
 
 /**
  * 清除bulid目录
@@ -29,6 +30,7 @@ gulp.task('clean', function() {
 gulp.task('css', function() {
 
     gulp.src(['src/**/*.css','src/**/*.less'])
+      .pipe(plumber())
       .pipe(less())
       .pipe(prefix())
       .pipe(cssmin())

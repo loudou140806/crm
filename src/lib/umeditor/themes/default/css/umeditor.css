@@ -67,7 +67,7 @@
     padding:0;
     background-repeat: no-repeat;
     background-image: url(../images/icons.png);
-    background-image: url(../images/icons.gif) \9;
+    background-image: url(../images/icons.gif);
 }
 
 /*状态反射*/
@@ -80,7 +80,7 @@
 }
 .edui-btn-toolbar .edui-btn.edui-disabled{
     opacity: 0.3;
-    filter: alpha(opacity = 30);
+
 }
 .edui-btn-toolbar .edui-btn .edui-icon-source {
     background-position:-260px -0px;
@@ -246,11 +246,11 @@
 
 .edui-btn-toolbar .edui-splitbutton.edui-disabled{
     opacity: 0.3;
-    filter: alpha(opacity = 30);
+    
 }
 .edui-btn-toolbar .edui-splitbutton.edui-disabled .edui-caret{
     opacity: 0.3 \0;
-    filter: alpha(opacity = 30)\0;
+
 }
 
 
@@ -300,12 +300,11 @@
 }
 .edui-btn-toolbar .edui-combobox.edui-disabled{
     opacity: 0.2;
-    filter: alpha(opacity = 20);
 }
 .edui-btn-toolbar .edui-combobox.edui-disabled .edui-button-label,
 .edui-btn-toolbar .edui-combobox.edui-disabled .edui-caret{
     opacity: 0.2 \0;
-    filter: alpha(opacity = 20)\0;
+
 }
 .edui-combobox-menu{
     position: absolute;
@@ -557,7 +556,7 @@
 }
 .edui-modal-backdrop{
     opacity: 0.5;
-    filter: alpha(opacity=50);
+
     position: fixed;
     top: 0;
     right: 0;
@@ -763,7 +762,7 @@
     height: 20px;
     padding: 1px 2px;
     background: url(../images/icons.png) -179px 1px;
-    background: url(../images/icons.gif) -179px 1px \9;
+    background: url(../images/icons.gif) -179px 1px;
     display: inline-block ;
     vertical-align: top;
     *display: inline ;

@@ -9,7 +9,7 @@ define('manage/user/index',function(require, exports, module){
 		initTable: function(){
 			$(juicer.templates['table.juicer']({
 				
-			}))
+			}));
 		},
 		//分页
 		initLayPage: function(){

@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><!-- #include file="/mods/header.html" --><title>登录</title><link rel="stylesheet" href="index.css"></head><body><div style="width:300px;height:50px; no-repeat; background-size:100%;margin:60px auto 5px auto; margin-bottom: 30px"><center><h1>跳蚤街管理系统</h1></center></div><div id="mobile-login"><div class="phone_password_div"><div class="phone_input_div"><i class="icon icon_1 fl"></i><div class="input_box"><input id="mobile-input" class="fl input_margin" maxlength="11" type="tel" onkeydown="doKeyDown()" placeholder="请输入手机号码"></div></div><hr style="overflow:hidden;height: 1px;background-color: #e3e3e3"><div class="phone_input_div"><i class="icon icon_2 fl"></i><div class="input_box"><input id="code-input" class="fl input_margin" type="password" onkeydown="doKeyDown()" placeholder="请输入用户密码"></div><a href="javascript:void(0);" id="send-action" onclick="doShowPWD()" class="button_yanzhengma f12 fff">显示密码</a></div></div><p style="clear:both"><!-- <a href="./reset_pwd.html" id="reset_pwd" class="speechVerification f15" onclick="hrefRedirectUrl()">
+	            	<span style="text-decoration:underline">重置密码</span>
+	           </a>
+ --> <a id="notifyMessage" style="color:#999;text-align:right;float:right;padding:10px 0;margin-right: 20px"></a></p><div style="margin-top: 30px"><a href="javascript:void(0);" id="login-action" onclick="doSignin()" class="login_button">登录</a> <a id="login-login" class="login_button" style="display:none">正在登录<!--<span id="loading">
+		               <span></span>
+		               <span></span>
+		               <span></span>
+		           </span>--></a></div></div><script src="//cdn.bootcss.com/seajs/3.0.2/runtime-debug.js"></script><script type="text/javascript" src="/lib/jquery/1.9.1/jquery.js"></script><script type="text/javascript" src="/lib/layer/2.1/layer.js"></script><script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script><script type="text/javascript" src="/lib/My97DatePicker/WdatePicker.js"></script><script type="text/javascript" src="/lib/icheck/jquery.icheck.js"></script><script type="text/javascript" src="/lib/bootstrap-Switch/bootstrapSwitch.js"></script><script type="text/javascript" src="/lib/Validform/5.3.2/Validform.js"></script><script type="text/javascript" src="/lib/Validform/5.3.2/passwordStrength-min.js"></script><script type="text/javascript" src="/lib/toast.js"></script><script>var redirectUrl =decodeURIComponent( GetQueryString("redirectUrl"));
+	    	console.log(redirectUrl);
+	    	
+	    	function hrefRedirectUrl(){
+	    		if(redirectUrl!=null && redirectUrl!=""){
+	    		 var hrefurl= "./reset_pwd.html?redirectUrl="+redirectUrl;
+	    		 $("#reset_pwd").attr("href",hrefurl);
+	    		}
+	    	}
+	    	
+	    	
+	    	//正则分析法 获取url参数值
+	        function GetQueryString(name) {
+	            //var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+	            //var r = window.location.search.substr(1).match(reg);
+	           	//console.log(window.location.search.substr(1));
+	            //if (r!=null) return (r[2]); return null;
+	            
+	            var r = window.location.search;
+	            var url=r.substr(r.indexOf(name) + name.length + 1);
+	            if (url!=null) return (url); return null;
+	        }
+	        
+	        var showpwd=false;
+	        function doShowPWD() {
+	        	if(showpwd){
+	    	    	document.getElementById("code-input").type = 'password';
+	    	    	document.getElementById("send-action").innerHTML='显示密码';
+	        		showpwd=false;
+	        	}else {    		
+	        		document.getElementById("code-input").type = 'text';
+	        		document.getElementById("send-action").innerHTML= '隐藏密码';
+	        		showpwd=true;
+	        	}	
+	        }
+	        
+	        function doKeyDown(){
+	    	if (event.keyCode == 13)
+	    	  {
+	    	    doSignin()
+	    	  }
+	        }
+	        
+	        var signinStatus = false;
+	        //登录按钮动作
+	        function doSignin() {
+	            if (document.getElementById("mobile-input").value == null || document.getElementById("mobile-input").value == "") {
+	                GlobalToast.show("手机号码不能为空");
+	            } else if (document.getElementById("code-input").value == null || document.getElementById("code-input").value == "") {
+	                GlobalToast.show("用户密码不能为空");
+	            } else {
+	            	var mobile = document.getElementById("mobile-input").value;
+	            	 if (!validatemobile(mobile)) {
+	            	   return;
+	                }
+	    		   document.getElementById("login-login").style.display = "block";
+	               document.getElementById("login-action").style.display = "none";
+	               signinStatus = false;
+	               setTimeout(function(){
+	    	           if( signinStatus == false ){
+	    		           document.getElementById("login-login").style.display = "none";
+	    		           document.getElementById("login-action").style.display = "block";
+	    		           GlobalToast.show("登陆超时，请重试");
+	               		}
+	               },10000);
+	               reallysignin();
+	            }
+	        }
+
+	    	//预判断手机号码有效性
+	        function validatemobile(mobile) {
+	            if (mobile.length == 0) {
+	                GlobalToast.show("请输入手机号码");
+	                return false;
+	            }
+	            if (mobile.length != 11) {
+	                GlobalToast.show("请输入有效的手机号码");
+	                return false;
+	            }
+
+	            var myreg = /^1\d{10}$/;
+	            if (!myreg.test(mobile)) {
+	                GlobalToast.show("请输入有效的手机号码");
+	                return false;
+	            }
+
+	            return true;
+	        }
+	    	
+	    	//登录请求
+	        function reallysignin(){
+	            var mobile = document.getElementById("mobile-input").value;
+	            var pwd = document.getElementById("code-input").value;
+
+	            $.ajax({
+	            url:'http://api.tiaozaoj.com/login',
+	                data:JSON.stringify({                   //post表单转换成字符串
+	                account: mobile,
+	           		password:pwd
+	            }),
+	            type:"POST",                        //  接口类型
+	            dataType:'json',                    //  参数类型
+	            contentType:'application/json',     //  请求类型
+	            success:function(data){
+	               if (data) {
+	                	if( data.status == true ){
+	                     	GlobalToast.show("登录成功");
+	                     	signinStatus = true;
+	         	            document.getElementById("login-login").style.display = "none";
+	         	            document.getElementById("login-action").style.display = "block";
+	                     	if( redirectUrl != 'null' && redirectUrl != ""  ){
+	                        	window.location = redirectUrl;        //如果有new-app-page就别加redirectUrl
+	                    	}else{
+	    						window.location = 'http://loumingjie.cn/crm/build/pages/home/index.html';
+	                    	}
+	                	}else{
+	                		signinStatus = true;
+	                		document.getElementById("login-login").style.display = "none";
+	                		document.getElementById("login-action").style.display = "block";
+	                    	GlobalToast.show(data.message);
+	                	}	
+	             	}else{
+	                GlobalToast.show("出错了");
+	            }
+	            }
+	        });
+	    }</script><script>var webPath = '//loumingjie.cn/crm/build/'
+	    	cfg = {
+	    		paths: {
+	    			'webPath': webPath,
+	    			'libs': webPath + 'libs/',
+	    			'mods': webPath + 'mods/',
+	    			'manage': webPath + 'pages/manage/',
+	    			'mall': webPath + 'pages/mall',
+	    			'anylize': webPath + 'pages/anylize',
+	    			'setting': webPath + 'pages/setting',
+	    			'login': webPath + 'pages/login'
+	    		},
+	    		charest: 'utf-8'
+	    	}
+	    	seajs.config(cfg);</script><script>seajs.use('login/index');</script></body></html>
