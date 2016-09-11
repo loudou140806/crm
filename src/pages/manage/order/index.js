@@ -1,6 +1,6 @@
 define('manage/order/index',function(require, exports, module){
 	require('./mods/tableTpl.js');
-	var Ajax = require('lib/ajax');
+	var Ajax = require('libs/ajax');
 	var pageIndex = 0;
 	var page = {
 		init: function(){

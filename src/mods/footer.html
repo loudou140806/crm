@@ -1,14 +1,14 @@
 <!-- <script type="text/javascript" src="//cdn.bootcss.com/seajs/3.0.2/sea.js"></script> -->
-<script type="text/javascript" src="/lib/sea.js"></script>
-<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.js"></script> 
-<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script> 
-<script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script> 
-<script type="text/javascript" src="/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="/lib/icheck/jquery.icheck.js"></script> 
-<script type="text/javascript" src="/lib/bootstrap-Switch/bootstrapSwitch.js"></script> 
-<script type="text/javascript" src="/lib/Validform/5.3.2/Validform.js"></script> 
-<script type="text/javascript" src="/lib/Validform/5.3.2/passwordStrength-min.js"></script>
-<script type="text/javascript" src="/lib/juicer.js"></script>
+<script type="text/javascript" src="/libs/sea.js"></script>
+<script type="text/javascript" src="/libs/jquery/1.9.1/jquery.js"></script> 
+<script type="text/javascript" src="/libs/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/libs/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="/libs/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="/libs/icheck/jquery.icheck.js"></script> 
+<script type="text/javascript" src="/libs/bootstrap-Switch/bootstrapSwitch.js"></script> 
+<script type="text/javascript" src="/libs/Validform/5.3.2/Validform.js"></script> 
+<script type="text/javascript" src="/libs/Validform/5.3.2/passwordStrength-min.js"></script>
+<script type="text/javascript" src="/libs/juicer.js"></script>
 <script type="text/javascript" src="/mods/js/H-ui.js"></script>
 <script type="text/javascript" src="/mods/js/index.js"></script>
 
@@ -17,7 +17,7 @@ var webPath = 'http://loumingjie.cn/crm/build/';
 	cfg = {
 		paths: {
 			'webPath': webPath,
-			'lib': webPath + 'lib',
+			'libs': webPath + 'libs',
 			'mods': webPath + 'mods/',
 			'manage': webPath + 'pages/manage/',
 			'mall': webPath + 'pages/mall',
@@ -25,6 +25,9 @@ var webPath = 'http://loumingjie.cn/crm/build/';
 			'setting': webPath + 'pages/setting/',
 			'login': webPath + 'pages/login/',
 			'home': webPath + 'pages/home/'
+		},
+		alias:{
+			'ajax': webPath + 'libs/ajax'
 		},
 		charest: 'utf-8'
 	};

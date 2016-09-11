@@ -1,5 +1,5 @@
 define('manage/user/index',function(require, exports, module){
-	var Ajax = require('lib/ajax'),
+	var Ajax = require('ajax'),
 	pageIndex = 0;
 	console.log(Ajax);
 	console.log(require);
