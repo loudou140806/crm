@@ -53,7 +53,8 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 	gulp.src(['src/**/*.js','!src/**/*.min.js','!src/**/sea.js'])
 	  .pipe(uglify())
-    .pipe(rev())
+    // .pipe(rev())
+    // .pipe(rev.manifest())
 	  .pipe(gulp.dest('build/'));    
 	  console.log('js编译成功');
   gulp.src('src/**/sea.js')
